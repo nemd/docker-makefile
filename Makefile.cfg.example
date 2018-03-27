@@ -1,0 +1,25 @@
+###########
+### Application specifics
+##########
+
+# below 4 are mandatory - if not specified will get default values - see Makefile
+APP_NAME = <app_name>
+IMAGE_NAME = <image_name>
+VERSION = latest
+DOCKER_REPO= <repo_name>
+
+# all others are not mandatory - customize it accroding to needs
+BUILD_ARGS = \
+	--build-arg VER=3.3 \
+	--build-arg BUILD=1.0 
+RUN_ARGS =
+RUN_PORTS = \
+	-p 8096:8096 \
+	-p 8920:8920 \
+	-p 7359:7359 \
+	-p 1900:1900
+VOLUMES = \
+	-v /config \
+	-v /tmp:/tmp
+RESTART_POLICY= --restart=unless-stopped
+		
